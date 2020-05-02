@@ -168,7 +168,7 @@ function DisplayNewCard(V,D1,D2)
   var PictPath;
   PictPath = path + V + D1 + D2 + extension; 
   MM_swapImage(PictName,'',PictPath,0); 
-  if(typeof tab != "undefined") addImg(window.location.origin+"/"+PictPath);
+  if(typeof tab != "undefined") addImg(window.location.origin+window.location.pathname+PictPath);
 }
 
 function PlayIt()
