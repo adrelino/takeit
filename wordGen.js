@@ -69,7 +69,7 @@ function generateWords(n){
         while(true){
 
             //var rand = Math.random();
-            var rand = myrng();
+            var rand = typeof myrng !== "undefined" ? myrng() : Math.random();
             var p_list = grams[last].sorted;
             // find the follower corresponding to the random number
             // Note: p_list containes the accumulated probabilities of

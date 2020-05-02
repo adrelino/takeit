@@ -168,6 +168,7 @@ function DisplayNewCard(V,D1,D2)
   var PictPath;
   PictPath = path + V + D1 + D2 + extension; 
   MM_swapImage(PictName,'',PictPath,0); 
+  if(typeof tab != "undefined") addImg(window.location.origin+"/"+PictPath);
 }
 
 function PlayIt()
@@ -288,4 +289,22 @@ function OnLoad(){
 
 function FormPressed(ss){
     //window.location.search="?seed="+ss;
+}
+
+function addImg(src){
+  console.log(src);
+  var s = 3;
+  var w = 99*s;
+  var h = 56*s;
+  var html = `<img name="Vorschau" border="0" src="${src}" width="${w}" height="${h}">`;
+  tab.document.body.insertAdjacentHTML('afterbegin', html);
+}
+
+function imgclick(imgt){
+  //https://javascript.info/popup-windows
+  let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=400,height=600,left=500,top=100`;
+  tab = window.open("about:blank", "hello", params);
+  tab.onload = function() {
+    addImg(imgt.src);
+  };
 }
