@@ -145,7 +145,8 @@ function DrawNewCard()
   var D2;
   while (Drawn == false)
   {
-    NewCard = Math.round(Math.random()*100)%27;
+    //NewCard = Math.round(Math.random()*100)%27;
+    NewCard = Math.abs(myrng.int32())%27;
     if (Cards[NewCard][3] != true)
 	{
 	  V = Cards[NewCard][0];
@@ -261,8 +262,9 @@ function CountPoints()
 }
 
 function PlayItInit(ss){
-	//console.log(ss);
-	Math.seedrandom(ss);
+  //console.log(ss);
+  //Math.seedrandom(ss);
+  myrng = new Math.seedrandom(ss);
 	PlayIt();
 }
 

@@ -68,7 +68,8 @@ function generateWords(n){
         var last = w;
         while(true){
 
-            var rand = Math.random();
+            //var rand = Math.random();
+            var rand = myrng();
             var p_list = grams[last].sorted;
             // find the follower corresponding to the random number
             // Note: p_list containes the accumulated probabilities of
